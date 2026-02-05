@@ -21,7 +21,10 @@ jobs:
                   dotnet-version: "10.0.x"
 
             - name: Restore
-              run: dotnet restore
+              run: |
+                  dotnet restore ./ClassLibraryProjects/StringLibrary/StringLibrary.csproj
+                  dotnet restore ./ShowCase/ShowCase.csproj
+                  dotnet restore ./StringLibraryTest/StringLibraryTest.csproj
 
             - name: Build library
               run: dotnet build ./ClassLibraryProjects/StringLibrary/StringLibrary.csproj -c Release --no-restore
